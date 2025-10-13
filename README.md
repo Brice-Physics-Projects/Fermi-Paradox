@@ -1,5 +1,7 @@
 # 🧠 Impractical Python Projects — Inspired by Lee Vaughan
 
+![Coverage](./coverage.svg)
+
 Welcome to a repository of wonderfully *impractical* brilliance!  
 This project collection is based on **_Impractical Python Projects: Playful Programming Activities to Make You Smarter_** by **Lee Vaughan** — a No Starch Press classic that turns curious coding experiments into brain-stretching fun.
 
