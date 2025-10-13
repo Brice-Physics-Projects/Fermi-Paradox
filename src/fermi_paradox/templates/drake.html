@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}Drake Equation Results{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-light">
+  <h1 class="display-5 mb-4 text-center">🧮 Drake Equation Results</h1>
+
+  <div class="card bg-dark border-secondary mb-4">
+    <div class="card-body text-center">
+      <h3 class="text-info mb-2">Estimated Number of Detectable Civilizations</h3>
+      <h2 class="display-4 text-success">{{ N | round(2) }}</h2>
+      <p class="text-muted mb-0">based on the current model parameters</p>
+    </div>
+  </div>
+
+  <h4 class="mt-4">📊 Parameters Used</h4>
+  <table class="table table-dark table-striped table-hover mt-3">
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Symbol</th>
+        <th>Value</th>
+        <th>Justification</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Rate of Star Formation</td>
+        <td><code>R*</code></td>
+        <td>{{ params["R_"] }}</td>
+        <td>~2 new stars form per year in the Milky Way — midpoint of observed 1–3/year range.</td>
+      </tr>
+      <tr>
+        <td>Fraction of Stars with Planets</td>
+        <td><code>f(p)</code></td>
+        <td>{{ params["f_p"] }}</td>
+        <td>Most stars host planetary systems; Kepler data suggests ≥0.7. Value 0.8 chosen as reasonable.</td>
+      </tr>
+      <tr>
+        <td>Average Number of Habitable Planets per System</td>
+        <td><code>n(e)</code></td>
+        <td>{{ params["n_e"] }}</td>
+        <td>Exoplanet studies estimate 0.1–0.2 potentially habitable planets per star. Model uses 0.2.</td>
+      </tr>
+      <tr>
+        <td>Fraction of Habitable Planets Where Life Appears</td>
+        <td><code>f(l)</code></td>
+        <td>{{ params["f_l"] }}</td>
+        <td>Life may appear on ~50% of habitable worlds. Moderate optimism (0.5) used here.</td>
+      </tr>
+      <tr>
+        <td>Fraction of Life-Bearing Planets with Intelligent Life</td>
+        <td><code>f(i)</code></td>
+        <td>{{ params["f_i"] }}</td>
+        <td>Highly uncertain; used 1.0 for simplicity, assuming intelligence evolves on all life-bearing planets.</td>
+      </tr>
+      <tr>
+        <td>Fraction Developing Detectable Technology</td>
+        <td><code>f(c)</code></td>
+        <td>{{ params["f_c"] }}</td>
+        <td>Small fraction sustain detectable signals; conservative value 0.1 adopted.</td>
+      </tr>
+      <tr>
+        <td>Lifetime of Detectable Civilization (years)</td>
+        <td><code>L</code></td>
+        <td>{{ params["L"] | round(0) }}</td>
+        <td>Estimated 1,000-year average signal lifetime — short on cosmic scales.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="mt-5 text-center">
+    <a href="{{ url_for('api.home') }}" class="btn btn-outline-info me-3">🏠 Return Home</a>
+    {# <a href="{{ url_for('api.edit_drake') }}" class="btn btn-outline-warning">✏️ Edit Parameters</a> #}
+  </div>
+
+  <hr class="my-5 border-secondary">
+
+  <section>
+    <h4>📚 References</h4>
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Drake_equation" target="_blank" class="link-info">Drake Equation — Wikipedia</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Fermi_paradox" target="_blank" class="link-info">Fermi Paradox — Wikipedia</a></li>
+      <li><a href="https://www.seti.org" target="_blank" class="link-info">SETI Institute</a></li>
+    </ul>
+  </section>
+</div>
+{% endblock %}
