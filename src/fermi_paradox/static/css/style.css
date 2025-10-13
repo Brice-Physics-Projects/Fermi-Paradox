@@ -174,3 +174,9 @@ footer small:hover {
   color: #00e0ff !important;
   text-shadow: 0 0 6px rgba(0, 224, 255, 0.6);
 }
+
+/* ---------- Muted Text ---------- */
+
+.text-muted, .text-secondary {
+  color: #aab6c4 !important;  /* softer gray-blue, readable on dark bg */
+}
