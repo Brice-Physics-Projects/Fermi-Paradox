@@ -1,7 +1,8 @@
 import numpy as np
-from random import randint
-from collections import Counter
-import matplotlib.pyplot as plt
+from fermi_paradox import create_app
+
+app = create_app()
+
 
 
 
@@ -19,3 +20,5 @@ radio_bubble_volume_calc = 4/3 * pi * radio_bubble_radius**3 # CU. LY
 
 print(f"{R_galactic_disc_radius: ,.2f}")
 
+if __name__ == "__main__":
+    app.run(port=5000)
