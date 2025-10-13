@@ -1,10 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Home — Fermi Paradox{% endblock %}
 
-</body>
-</html>
+{% block content %}
+
+<section class="text-center mb-5">
+  <h1 class="display-5 fw-bold mb-3 text-accent">Welcome to the Fermi Paradox Simulation</h1>
+  <p class="lead mx-auto" style="max-width: 800px;">
+    This web app explores one of the most intriguing questions in science:
+    <br>
+    <em>“If the galaxy is full of stars and planets, where is everybody?”</em>
+  </p>
+  <hr class="my-4 border-secondary" style="width: 60%;">
+</section>
+
+<section class="mb-5">
+  <h2 class="text-accent mb-3">🌌 Understanding Drake’s Number</h2>
+  <p>
+    <strong>Drake’s Number (N)</strong> estimates how many civilizations in our galaxy are capable of sending
+    detectable radio signals. It’s calculated using the
+    <a href="{{ url_for('api.get_drake_number') }}">Drake Equation</a>,
+    which combines astronomical and biological probabilities to model the odds of communication between civilizations.
+  </p>
+  <p>
+    The equation considers the rate of star formation, the fraction of stars with planets, the number of
+    habitable worlds, and the likelihood that life, intelligence, and detectable technology emerge and persist.
+  </p>
+</section>
+
+<section class="mb-5">
+  <h2 class="text-accent mb-3">🧮 Drake’s Number</h2>
+  <p>
+    Dive deeper into each factor of the equation and see how small changes in assumptions can dramatically
+    alter our estimate of potential communicating civilizations.
+  </p>
+  <p>
+    👉 Explore the <a href="{{ url_for('api.get_drake_number') }}">Drake’s Number</a> page to view the inputs,
+    calculations, and justifications for each parameter.
+  </p>
+</section>
+
+<section class="mb-5">
+  <h2 class="text-accent mb-3">🪐 Galaxy Simulator</h2>
+  <p>
+    Visualize our Milky Way galaxy and the distribution of hypothetical civilizations.
+    The simulator scales the galactic volume and represents each civilization’s radio
+    “bubble,” showing how likely they are to overlap and detect each other.
+  </p>
+  <p>
+    🔭 Visit the <a href="#">Galaxy Simulator</a> to see the Milky Way rendered as a digital starfield.
+  </p>
+</section>
+
+<section class="mb-5">
+  <h2 class="text-accent mb-3">📈 Probability Detection Model</h2>
+  <p>
+    This section models the <strong>probability of interstellar detection</strong> — the odds that one
+    civilization’s signals overlap with another’s. Based on Monte Carlo simulations and polynomial regression,
+    it offers a quantitative look at how vast space limits communication opportunities.
+  </p>
+  <p>
+    🧠 Learn more in the <a href="#">Probability Detection</a> module.
+  </p>
+</section>
+
+<hr class="border-secondary my-5">
+
+<section class="text-center">
+  <p class="text-muted">
+    This project blends astrophysics, probability, and curiosity — inspired by
+    <em>“Impractical Python Projects”</em> and reimagined for the web.
+  </p>
+</section>
+
+{% endblock %}

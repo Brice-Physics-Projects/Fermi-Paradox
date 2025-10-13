@@ -1,11 +1,27 @@
-import numpy as np
+"""
+Internal development testing
+
+src/fermi_paradox/main.py
+"""
+
 from fermi_paradox import create_app
 
-app = create_app()
+def start_app():
+    """Start the Flask app (used for debugging or CLI calls)."""
+    app = create_app()
+    app.run(debug=True)
+
+if __name__ == "__main__":
+    start_app()
 
 
 
 
+
+
+"""
+Archived calculations
+---------------------
 
 pi = np.pi
 galactic_disc_height = 1000 # LY
@@ -19,6 +35,7 @@ radio_bubble_volume_calc = 4/3 * pi * radio_bubble_radius**3 # CU. LY
 
 
 print(f"{R_galactic_disc_radius: ,.2f}")
+"""
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    start_app()

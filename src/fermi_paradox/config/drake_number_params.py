@@ -6,7 +6,7 @@ src/fermi_paradox/config/drake_number_params.py
 
 L_1961 = 50E6
 L_2017 = 15.6E6
-L_weighted_avg = (.2*L_1961 + .8*L_2017) / 2 #weighted average using 80% on recent data
+L_weighted_avg = (.2*L_1961 + .8*L_2017) / 2 # weighted average using 80% on recent data
 
 
 DEFAULT_DRAKE_PARAMS = {
