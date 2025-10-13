@@ -76,12 +76,28 @@
         <td><code>L</code></td>
         <td>{{ "{:,.0f}".format(params["L"]) }}</td>
         <td>
-          Weighted mean of 1961 (50×10⁶ years) and 2017 (15.6×10⁶ years) estimates, with 80% weighting on the newer data.<br>
-          Computed as <code>L = (0.2×50E6 + 0.8×15.6E6) ÷ 2 = {{ "{:,.0f}".format(params["L"]) }}</code>.
+          Weighted mean of 1961 (50×10⁶ years) and 2017 (1.0×10⁶ years) estimates, with 80% weighting on the newer data.<br>
+          Computed as <code>L = (0.2×50E6 + 0.8×1.0E6) ÷ 2 = {{ "{:,.0f}".format(params["L"]) }}</code>.
         </td>
       </tr>
     </tbody>
   </table>
+    <div class="mt-4">
+  <h5 class="text-info">🧩 Origin of Lifetime Estimates (L)</h5>
+  <p class="text-secondary mt-2">
+    The values used for <code>L</code>—the expected lifetime of a communicating civilization—are derived from
+    <em>Impractical Python Projects</em> by Lee Vaughan (<em>No Starch Press, 2019</em>), Table 10-1:
+    <q>Some Drake Equation Inputs and Results</q>, p. 191.
+    That table summarizes estimates originally discussed by Frank Drake, comparing his 1961 and 2017 parameter sets.
+  </p>
+  <p class="text-secondary">
+    In this model, a weighted mean
+    <code>L = (0.2 × 50E6 + 0.8 × 1E6) ÷ 2</code>
+    is used to balance early optimism with later, more conservative assumptions—producing a moderate expectation
+    of how long technological civilizations may remain detectable within our galaxy.
+  </p>
+</div>
+
 
   <div class="mt-5 text-center">
     <a href="{{ url_for('api.home') }}" class="btn btn-outline-info me-3">🏠 Return Home</a>
@@ -96,6 +112,11 @@
       <li><a href="https://en.wikipedia.org/wiki/Drake_equation" target="_blank" class="link-info">Drake Equation — Wikipedia</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Fermi_paradox" target="_blank" class="link-info">Fermi Paradox — Wikipedia</a></li>
       <li><a href="https://www.seti.org" target="_blank" class="link-info">SETI Institute</a></li>
+      <li><a href="https://www.seti.org/drake-equation" target="_blank" class="link-info">SETI Institute — The Drake Equation</a></li>
+      <li><a href="https://www.space.com/25219-drake-equation.html" target="_blank" class="link-info">Space.com — The Drake Equation Explained</a></li>
+      <li>Vaughan, Lee. <i>Impractical Python Projects</i>. No Starch Press, 2019. Table 10-1: Some Drake Equation Inputs and Results, p. 191.</li>
+
+
     </ul>
   </section>
 </div>
