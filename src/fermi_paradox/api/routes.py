@@ -1,3 +1,9 @@
+"""
+API routes for Fermi Paradox application.
+
+src/fermi_paradox/api/routes.py
+"""
+
 from flask import Blueprint, render_template, jsonify
 from fermi_paradox.core.drake_equation import DRAKE_NUMBER
 
