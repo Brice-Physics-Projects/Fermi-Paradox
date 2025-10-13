@@ -5,7 +5,7 @@ import matplotlib
 matplotlib.use('TkAgg')  # or 'Qt5Agg' if TkAgg is not available
 import matplotlib.pyplot as plt
 import pandas as pd
-import tkinter as tk
+import tkinter as tk # noqa: F401
 
 
 # Constants

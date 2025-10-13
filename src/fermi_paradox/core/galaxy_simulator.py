@@ -2,7 +2,7 @@ import tkinter as tk
 from random import randint, uniform, random
 import math
 import numpy as np
-import prob_detection
+import prob_detection # noqa: F401
 
 
 # *************** MAIN INPUT ***************************
