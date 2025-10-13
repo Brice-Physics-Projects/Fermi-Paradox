@@ -104,3 +104,73 @@ footer small:hover {
 .bg-cosmic {
   background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
 }
+
+/* ---------- Fixed Navbar + Footer Enhancements ---------- */
+.cosmic-navbar {
+  background: linear-gradient(90deg, #020024 0%, #090979 50%, #00d4ff 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.cosmic-navbar .nav-link {
+  color: #d9d9d9 !important;
+  font-weight: 500;
+  position: relative;
+}
+
+.cosmic-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: #00d8ff;
+  transition: width 0.3s ease;
+}
+
+.cosmic-navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+.cosmic-navbar .nav-link:hover {
+  color: #ffffff !important;
+}
+
+.cosmic-footer {
+  background: linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.cosmic-footer small {
+  letter-spacing: 0.3px;
+  color: #aaa;
+}
+
+.cosmic-footer small:hover {
+  color: #00d8ff;
+  transition: color 0.3s ease;
+}
+
+/* ---------- Glass Effect on Scroll ---------- */
+.cosmic-navbar.glass {
+  background: rgba(10, 10, 20, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 15px rgba(0, 216, 255, 0.2);
+  transition: all 0.4s ease-in-out;
+}
+
+.cosmic-navbar.glass .nav-link {
+  color: #f0f0f0 !important;
+}
+
+.cosmic-navbar.glass .nav-link::after {
+  background-color: #00d8ff;
+}
+
+.cosmic-navbar.glass .navbar-brand {
+  color: #00e0ff !important;
+  text-shadow: 0 0 6px rgba(0, 224, 255, 0.6);
+}
