@@ -25,14 +25,24 @@ def get_drake_number():
             value = request.form.get(key)
             if value:
                 params[key] = float(value)
-    N = calculate_drake_number(**params)
-    return render_template("drake.html", N=N, params=params)
+    DRAKE_NUMBER = calculate_drake_number(**params)
+    return render_template("drake.html", DRAKE_NUMBER=DRAKE_NUMBER, params=params)
 
 @api_bp.route("/api/edit-drake", methods=["GET", "POST"])
 def edit_drake_params():
     """Edit Drake parameters."""
     name = None
-    form = DrakeForm()
+    # ✅ Prefill the form with your default Drake parameters
+    form = DrakeForm(data={
+        "R_": DEFAULT_DRAKE_PARAMS["R_"],
+        "f_p": DEFAULT_DRAKE_PARAMS["f_p"],
+        "n_e": DEFAULT_DRAKE_PARAMS["n_e"],
+        "f_l": DEFAULT_DRAKE_PARAMS["f_l"],
+        "f_i": DEFAULT_DRAKE_PARAMS["f_i"],
+        "f_c": DEFAULT_DRAKE_PARAMS["f_c"],
+        "L": DEFAULT_DRAKE_PARAMS["L"],
+    })
+
     if form.validate_on_submit():
         params = {
         "R_" : form.R_.data,
