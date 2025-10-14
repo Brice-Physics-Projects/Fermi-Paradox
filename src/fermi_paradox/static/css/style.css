@@ -1,0 +1,182 @@
+/* =========================================================
+   🌌 Fermi Paradox — Base Stylesheet
+   Author: Brice Nelson
+   Description: Dark cosmic theme with subtle gradients
+   ========================================================= */
+
+/* ---------- Global ---------- */
+body {
+  background: radial-gradient(circle at 20% 20%, #0b0c10 0%, #000 100%);
+  color: #e0e0e0;
+  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding-top: 70px; /* account for fixed navbar */
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  background: linear-gradient(90deg, #050505 0%, #0f0f0f 50%, #050505 100%);
+  border-bottom: 1px solid #202020;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+  color: #ffffff !important;
+}
+
+.navbar-brand:hover {
+  color: #00d8ff !important;
+  text-shadow: 0 0 8px rgba(0, 216, 255, 0.6);
+}
+
+.nav-link {
+  color: #bfbfbf !important;
+  font-weight: 500;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #00d8ff !important;
+  text-shadow: 0 0 8px rgba(0, 216, 255, 0.5);
+}
+
+/* ---------- Main Content ---------- */
+main {
+  min-height: 80vh;
+}
+
+h1, h2, h3, h4 {
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+p, li {
+  color: #d6d6d6;
+  line-height: 1.6;
+}
+
+a {
+  color: #00d8ff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4be0ff;
+  text-decoration: underline;
+}
+
+/* ---------- Cards / Sections ---------- */
+.card {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 15px rgba(0, 216, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: #0a0a0a;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+footer small {
+  letter-spacing: 0.3px;
+}
+
+footer small:hover {
+  color: #00d8ff;
+  transition: color 0.3s ease;
+}
+
+/* ---------- Utility Classes ---------- */
+.text-accent {
+  color: #00d8ff;
+}
+
+.bg-cosmic {
+  background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+}
+
+/* ---------- Fixed Navbar + Footer Enhancements ---------- */
+.cosmic-navbar {
+  background: linear-gradient(90deg, #020024 0%, #090979 50%, #00d4ff 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.cosmic-navbar .nav-link {
+  color: #d9d9d9 !important;
+  font-weight: 500;
+  position: relative;
+}
+
+.cosmic-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: #00d8ff;
+  transition: width 0.3s ease;
+}
+
+.cosmic-navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+.cosmic-navbar .nav-link:hover {
+  color: #ffffff !important;
+}
+
+.cosmic-footer {
+  background: linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.cosmic-footer small {
+  letter-spacing: 0.3px;
+  color: #aaa;
+}
+
+.cosmic-footer small:hover {
+  color: #00d8ff;
+  transition: color 0.3s ease;
+}
+
+/* ---------- Glass Effect on Scroll ---------- */
+.cosmic-navbar.glass {
+  background: rgba(10, 10, 20, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 15px rgba(0, 216, 255, 0.2);
+  transition: all 0.4s ease-in-out;
+}
+
+.cosmic-navbar.glass .nav-link {
+  color: #f0f0f0 !important;
+}
+
+.cosmic-navbar.glass .nav-link::after {
+  background-color: #00d8ff;
+}
+
+.cosmic-navbar.glass .navbar-brand {
+  color: #00e0ff !important;
+  text-shadow: 0 0 6px rgba(0, 224, 255, 0.6);
+}
+
+/* ---------- Muted Text ---------- */
+
+.text-muted, .text-secondary {
+  color: #aab6c4 !important;  /* softer gray-blue, readable on dark bg */
+}

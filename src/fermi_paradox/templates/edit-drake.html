@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Drake Parameters{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+  <h2 class="text-center mb-4">Edit Drake Equation Parameters</h2>
+
+  <form method="POST" action="{{ url_for('api.edit_drake_params') }}">
+    {{ form.hidden_tag() }}
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group mb-3">
+          {{ form.R_.label(class="form-label") }}
+          {{ form.R_(class="form-control") }}
+          {% if form.R_.errors %}
+            <div class="text-danger small">{{ form.R_.errors[0] }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group mb-3">
+          {{ form.f_p.label(class="form-label") }}
+          {{ form.f_p(class="form-control") }}
+          {% if form.f_p.errors %}
+            <div class="text-danger small">{{ form.f_p.errors[0] }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group mb-3">
+          {{ form.n_e.label(class="form-label") }}
+          {{ form.n_e(class="form-control") }}
+          {% if form.n_e.errors %}
+            <div class="text-danger small">{{ form.n_e.errors[0] }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group mb-3">
+          {{ form.f_l.label(class="form-label") }}
+          {{ form.f_l(class="form-control") }}
+          {% if form.f_l.errors %}
+            <div class="text-danger small">{{ form.f_l.errors[0] }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group mb-3">
+          {{ form.f_i.label(class="form-label") }}
+          {{ form.f_i(class="form-control") }}
+          {% if form.f_i.errors %}
+            <div class="text-danger small">{{ form.f_i.errors[0] }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group mb-3">
+          {{ form.f_c.label(class="form-label") }}
+          {{ form.f_c(class="form-control") }}
+          {% if form.f_c.errors %}
+            <div class="text-danger small">{{ form.f_c.errors[0] }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group mb-3">
+          {{ form.L.label(class="form-label") }}
+          {{ form.L(class="form-control") }}
+          {% if form.L.errors %}
+            <div class="text-danger small">{{ form.L.errors[0] }}</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary px-4">Update Parameters</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
