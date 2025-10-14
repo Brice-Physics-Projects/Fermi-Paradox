@@ -7,7 +7,7 @@ src/fermi_paradox/api/routes.py
 from flask import Blueprint, render_template, request
 from fermi_paradox.config.drake_number_params import DEFAULT_DRAKE_PARAMS
 from fermi_paradox.core.drake_equation import calculate_drake_number
-from fermi_paradox.api.forms import DrakeForm # noqa: F401
+from fermi_paradox.api.forms import DrakeForm
 
 api_bp = Blueprint("api", __name__)
 
@@ -27,3 +27,29 @@ def get_drake_number():
                 params[key] = float(value)
     N = calculate_drake_number(**params)
     return render_template("drake.html", N=N, params=params)
+
+@api_bp.route("/api/edit-drake", methods=["GET", "POST"])
+def edit_drake_params():
+    """Edit Drake parameters."""
+    name = None
+    form = DrakeForm()
+    if form.validate_on_submit():
+        params = {
+        "R_" : form.R_.data,
+        "f_p" : form.f_p.data,
+        "n_e" : form.n_e.data,
+        "f_l" : form.f_l.data,
+        "f_i" : form.f_i.data,
+        "f_c" : form.f_c.data,
+        "L" : form.L.data,
+        }
+
+        # loop through params
+        for key, value in params.items():
+            if value is None:
+                params[key] = DEFAULT_DRAKE_PARAMS[key]
+
+        # calcuate drake's number
+        DRAKE_NUMBER = calculate_drake_number(**params)
+        return render_template("drake.html", form=form, DRAKE_NUMBER=DRAKE_NUMBER, params=params)
+    return render_template("edit-drake.html", form=form, name=name)

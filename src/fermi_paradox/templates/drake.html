@@ -8,7 +8,7 @@
   <div class="card bg-dark border-secondary mb-4">
     <div class="card-body text-center">
       <h3 class="text-info mb-2">Estimated Number of Detectable Civilizations</h3>
-      <h2 class="display-4 text-success">{{ "{:,.0f}".format(N) }}</h2>
+      <h2 class="display-4 text-success">{{ "{:,.0f}".format(DRAKE_NUMBER) }}</h2>
       <p class="text-muted mb-0">based on the current model parameters</p>
     </div>
   </div>
@@ -101,7 +101,7 @@
 
   <div class="mt-5 text-center">
     <a href="{{ url_for('api.home') }}" class="btn btn-outline-info me-3">🏠 Return Home</a>
-    {# <a href="{{ url_for('api.edit_drake') }}" class="btn btn-outline-warning">✏️ Edit Parameters</a> #}
+    <a href="{{ url_for('api.edit_drake_params') }}" class="btn btn-outline-warning">✏️ Edit Parameters</a>
   </div>
 
   <hr class="my-5 border-secondary">
