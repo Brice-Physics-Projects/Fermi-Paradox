@@ -65,10 +65,29 @@
     {% endblock %}
   </main>
 
-  <!-- 🌌 Fixed Footer -->
-  <footer class="footer fixed-bottom text-center py-2 cosmic-footer border-top border-secondary">
-    <small>© {{ current_year or 2025 }} Fermi Paradox Simulation — Created by Brice Nelson</small>
-  </footer>
+<!-- 🌌 Fixed Footer -->
+<footer class="footer fixed-bottom text-center py-3 cosmic-footer border-top border-secondary bg-dark">
+  <small class="text-muted">
+    © {{ current_year or 2025 }}
+    <span class="text-light">Fermi Paradox Simulation</span> —
+    Built by
+    <a href="https://www.devbybrice.com"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="text-info fw-semibold text-decoration-underline">
+       Brice Nelson
+    </a>
+    |
+    <a href="https://www.devbybrice.com"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="text-warning fw-semibold text-decoration-none">
+       devbybrice.com
+    </a>
+  </small>
+</footer>
+
+
 
   <!-- Bootstrap JS -->
   <script
