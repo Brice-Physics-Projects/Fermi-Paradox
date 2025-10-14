@@ -5,6 +5,10 @@ This project collection is based on **_Impractical Python Projects: Playful Prog
 
 Each folder corresponds to a chapter in the book, with code listings and variations inspired by the exercises. Whether you’re exploring probability puzzles, simulating alien life, or building text adventures, this repo captures the spirit of learning through play.
 
+🌌 **Live App:** [https://fermi-paradox-project.com/](https://fermi-paradox-project.com/)
+
+> Explore the *Fermi Paradox Simulation* — a Flask-based web adaptation inspired by one of the book’s most cosmic thought experiments.
+
 ---
 
 ## 📘 About the Book
