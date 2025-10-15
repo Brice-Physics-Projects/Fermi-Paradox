@@ -73,6 +73,19 @@ Or use the green **“Code”** button above on GitHub to download as a ZIP.
 
 ---
 
+# 🚀 Future Enhancements
+
+This project will continue evolving beyond the original *Impractical Python* framework, with planned features such as:
+
+- **Monte Carlo Simulation of the Drake Equation** — to model uncertainty across the equation’s parameters and estimate the probability distribution of detectable civilizations.  
+- **Interactive Galaxy Visualization** — web-based dynamic rendering of galactic civilizations using D3.js or Plotly.  
+- **User-Controlled Parameters** — sliders to adjust `R*`, `f(p)`, `f(l)`, etc., and instantly view probabilistic outcomes.  
+- **Historical Data Overlays** — visualize Earth’s radio emission radius growth over time.  
+
+These enhancements aim to turn an already thought-provoking exercise into a *living simulation* of our cosmic probabilities.
+
+---
+
 ## 🧩 Errata & Updates
 
 Check for updates and corrections directly from No Starch Press:  
