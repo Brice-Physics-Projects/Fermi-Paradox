@@ -76,4 +76,4 @@ While largely *impractical*, the simulation aims to provoke curiosity about our 
 
 ---
 
-**“If there are billions of stars and countless worlds, where is everybody?” — Enrico Fermi**
+>**“If there are billions of stars and countless worlds, where is everybody?” — Enrico Fermi**

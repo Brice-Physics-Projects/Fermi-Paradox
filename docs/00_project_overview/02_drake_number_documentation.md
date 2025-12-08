@@ -15,11 +15,16 @@ This documentation provides an overview of the Drake number calculation process,
 ---
 
 ## Equation
-DRAKE_NUMBER = R_ * f_p * n_e * f_l * f_i * f_c * L 
+
+The Drake Equation is given by:
+\[
+N = R^* \times f(p) \times n(e) \times f(l) \times f(i) \times f(c) \times L
+\]
 
 ---
 
 ## Input Table
+
 ## 🧮 Drake Inputs Table
 
 |  Parameter  | Description | Drake (1961) | Drake (2017) | Used in Model |
@@ -42,42 +47,51 @@ Below are the reasoning and assumptions used to determine the “Used in Model�
 ---
 
 ### **R\*** — Rate of Star Formation  
+
 Current estimates suggest that approximately **1–3 new stars** form in the Milky Way each year.  
 For this model, a midpoint value of **2 stars per year** is used.
 
 ---
 
 ### **f(p)** — Fraction of Stars with Planetary Systems  
+
 Observations from missions such as **Kepler** indicate that most stars have planets, with estimates between **0.7 and 1.0**.  
 A value of **1.0** is used for simplicity, assuming nearly all stars host planets.
 
 ---
 
 ### **n(e)** — Average Number of Habitable Planets per System  
+
 Recent **exoplanet studies** suggest that between **0.1 and 0.2** planets per star could support life.  
 A value of **0.2** is used to represent an optimistic but reasonable estimate.
 
 ---
 
 ### **f(l)** — Fraction of Habitable Planets Where Life Appears  
+
 This parameter is **highly uncertain**. Some theories assume life will almost always develop when conditions are right (**f(l) = 1**), while others predict it’s extremely rare.  
 A balanced value of **0.5** is used to reflect moderate optimism.
 
 ---
 
 ### **f(i)** — Fraction of Life-Bearing Planets that Develop Intelligence  
+
+The development of intelligent life is another area of significant uncertainty.
 The emergence of intelligent life remains **speculative**. Estimates range from extremely low to near certainty.  
 This model uses **f(i) = 0.1** to represent a cautious assumption.
 
 ---
 
 ### **f(c)** — Fraction of Intelligent Civilizations that Develop Detectable Technology  
+
 Even among intelligent civilizations, few may produce **detectable electromagnetic signals** or sustain them long enough to overlap with others.  
 This model assumes **f(c) = 0.1**, suggesting a relatively small proportion develop and maintain technology capable of detection.
 
 ---
 
 ### **L** — Average Lifetime of Detectable Civilizations  
+
+The longevity of technological civilizations is **highly speculative**.
 If we assume civilizations release detectable signals for roughly **1,000 years**, then **L = 1,000**.  
 For context, Earth has been transmitting detectable radio waves for about **124 years** (since around **1901**).  
 This duration provides a frame of reference for a relatively short-lived technological phase on a cosmic timescale.
@@ -85,6 +99,7 @@ This duration provides a frame of reference for a relatively short-lived technol
 ---
 
 ## References
+
 - [Drake Equation](https://en.wikipedia.org/wiki/Drake_equation)
 - [Fermi Paradox](https://en.wikipedia.org/wiki/Fermi_paradox)
 - [SETI](https://en.wikipedia.org/wiki/Search_for_extraterrestrial_intelligence)
@@ -94,4 +109,5 @@ This duration provides a frame of reference for a relatively short-lived technol
 ---
 
 ## Acknowledgments
+
 This documentation was created with the support of the SETI Institute and the Carl Sagan Center for the Study of Life in the Universe.
