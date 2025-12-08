@@ -67,12 +67,21 @@ fermi_paradox/
 │   │   │
 │   │   ├── api/
 │   │   │   ├── __init__.py
-│   │   │   ├── routes.py
-│   │   │   │   # Web-facing routes & endpoints.
-│   │   │   │   # Calls into core/ and ml/ without containing logic.
-│   │   │   └── schemas.py
-│   │   │       # Optional: Input validation models (Marshmallow/Pydantic).
-│   │   │
+│   │   │   ├── forms/          # WTForms or similar for handling user input from the UI. 
+│   │   │   │   ├── drake_form.py
+│   │   │   │   ├── galaxy_simulation_form.py
+│   │   │   │   └── signal_detection_form.py
+│   │   │   │
+│   │   │   ├── controllers/     # Business logic connecting core/ and ml/ to the web routes.
+│   │   │   │   ├── drake_controller.py
+│   │   │   │   ├── galaxy_simulation_controller.py
+│   │   │   │   └── signal_detection_controller.py
+│   │   │   │
+│   │   │   ├── routes/             # Calls into core/ and ml/ without containing logic.          
+│   │   │   │   └── routes.py       # Flask route definitions.   
+│   │   │   │   
+│   │   │   └── schemas.py          # (Optional) Pydantic or Marshmallow schemas for data validation.
+│   │   │       
 │   │   ├── templates/                     # Everything for the web UI.
 │   │   │   ├── base/  
 │   │   │   │   ├── base.html              # Shared layout (navbar, footer).
@@ -140,24 +149,28 @@ fermi_paradox/
 │   │   ├── 02_galaxy_simulator_guide.md    # Using the MC simulation tool.
 │   │   └── 03_signal_detection_guide.md    # Exploring signal probability features.
 │   ├── 04_api_documentation/
-│   │   ├── endpoint_reference.md           # Full API reference.
-│   │   └── example_requests.md             # Sample API calls and responses.
+│   │   ├── 01_endpoint_reference.md           # Full API reference.
+│   │   └── 02_example_requests.md             # Sample API calls and responses.
 │   ├── 05_scientific_theory/               # Scientific background and theory.
 │   │   ├── 01_drake_equation_theory.md        # Scientific explanation.
 │   │   ├── 02_galaxy_simulation_theory.md     # Simulation reasoning.
 │   │   └── 03_signal_processing_overview.md   # Foundations for detection logic.
 │   ├── 06_development_notes/
-│   │   ├── architecture_notes.md           # ADR (Architecture Decision Records).
-│   │   ├── development_log.md              # Journal of progress.
-│   │   └── refactor_log.md                 # Notes as structure evolves.
+│   │   ├── 01_architecture_notes.md           # ADR (Architecture Decision Records).
+│   │   ├── 02_development_log.md              # Journal of progress.
+│   │   └── 03_refactor_log.md                 # Notes as structure evolves.
 │   └── 07_assets/
-│       └── diagrams/                       # Architecture graphics, galaxy visuals.
+│       └── 01_diagrams/                       # Architecture graphics, galaxy visuals.
 │
 ├── .env                                    # API keys, config (ignored in git)
+├── .env.example                            # Example env file for reference
 ├── .gitignore
+├── .gitattributes
 ├── LICENSE
 ├── requirements.txt or pyproject.toml
 ├── README.md                               # Project landing page
+├── Procfile                                # For deployment (Heroku, etc.)
+├── pytest.ini                              # Pytest configuration
 └── run.py                                  # Convenience launcher
 ```
 
