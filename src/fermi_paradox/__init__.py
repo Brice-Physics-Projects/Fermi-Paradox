@@ -22,11 +22,14 @@ def create_app(config_class=None):
     # SECURITY HEADERS FOR SSL A/A+ RATING
     # -----------------------------------------------------------
 
-    # Minimal default Content Security Policy
+    # Content Security Policy that allows inline styles and scripts
     csp = {
-        "default-src": [
-            "'self'"
-        ]
+        "default-src": ["'self'"],
+        "style-src": ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
+        "script-src": ["'self'", "'unsafe-inline'", "https://www.googletagmanager.com", "https://cdn.jsdelivr.net"],
+        "img-src": ["'self'", "data:", "https://www.googletagmanager.com"],
+        "font-src": ["'self'", "https://cdn.jsdelivr.net"],
+        "connect-src": ["'self'", "https://www.google-analytics.com", "https://www.googletagmanager.com"],
     }
 
     # Add security headers via Flask-Talisman
