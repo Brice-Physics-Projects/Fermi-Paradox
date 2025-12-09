@@ -179,7 +179,7 @@ The current architecture, scientific logic, simulations, and extensions are **or
 
 ## ⭐ Why This Project Matters
 
-This application blends your strengths:
+This application blends the following strengths:
 
 - Backend engineering  
 - Scientific curiosity  
