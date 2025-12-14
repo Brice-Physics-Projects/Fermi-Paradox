@@ -153,8 +153,9 @@ fermi_paradox/
 │   │   └── 02_example_requests.md             # Sample API calls and responses.
 │   ├── 05_scientific_theory/               # Scientific background and theory.
 │   │   ├── 01_drake_equation_theory.md        # Scientific explanation.
-│   │   ├── 02_galaxy_simulation_theory.md     # Simulation reasoning.
-│   │   └── 03_signal_processing_overview.md   # Foundations for detection logic.
+│   │   ├── 02_bayesian_drake_model.md        # Scientific explanation of Bayesian approach to Drake Equation.
+│   │   ├── 03_galaxy_simulation_theory.md     # Simulation reasoning.
+│   │   └── 04_signal_processing_overview.md   # Foundations for detection logic.
 │   ├── 06_development_notes/
 │   │   ├── 01_architecture_notes.md           # ADR (Architecture Decision Records).
 │   │   ├── 02_development_log.md              # Journal of progress.
