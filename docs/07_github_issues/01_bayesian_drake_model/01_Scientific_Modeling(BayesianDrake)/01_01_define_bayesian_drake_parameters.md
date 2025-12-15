@@ -13,10 +13,13 @@ Finalize the Drake parameters included in the Bayesian model and select appropri
 
 _**Tasks**_
 
-* [ ] List final Drake parameters
-* [ ] Assign distribution type per parameter
-* [ ] Document physical and logical bounds
-* [ ] Verify consistency with existing deterministic Drake logic
+* [x] List final Drake parameters
+* [x] Assign distribution type per parameter
+* [x] Document physical and logical bounds
+* [x] Justify distribution choices scientifically
+* [x] Create summary table of parameters and distributions
+* [x] Verify scientific rationale
+* [x] Verify consistency with existing deterministic Drake logic
 
 ---
 
