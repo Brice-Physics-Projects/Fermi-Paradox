@@ -2,8 +2,8 @@
 
 The Bayesian Drake model incorporates uncertainty in each parameter by assigning a probability distribution rather than a fixed value. The chosen distributions reflect current scientific understanding and the degree of uncertainty for each factor.
 
-| Parameter | Distribution Type | Rationale                                                                                                                  |
-| --------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Parameter | Distribution Type | Rationale    |
+
 | R*        | Normal            | Measured star formation rate with observational uncertainty with truncation to ensure non-negative values (NASA, Gaia DR3) |
 | f_p       | Beta              | Fraction bounded between 0 and 1; informed by Kepler and TESS exoplanet surveys (NASA Exoplanet Archive)                   |
 | n_e       | Beta              | Bounded probability with limited empirical constraints (Kepler-derived habitability estimates)                             |
@@ -46,7 +46,7 @@ The Beta distribution is controlled by two shape parameters (α, β) that determ
 The Bayesian Drake model has been cross-checked against the existing deterministic implementation to ensure that when fixed parameter values are used (e.g., means of the distributions), the results align closely. This verification step is crucial to maintain continuity and trust in the model as uncertainty is introduced.
 
 | Parameter | Deterministic Meaning         | Bayesian Meaning      | Match? |
-| --------- | ----------------------------- | --------------------- | ------ |
+
 | R*        | Star formation rate           | Star formation rate   | ✅      |
 | f_p       | Fraction with planets         | Fraction with planets | ✅      |
 | n_e       | Habitable planets per system  | Same                  | ✅      |
@@ -74,8 +74,8 @@ N = R* · f_p · n_e · f_l · f_i · f_c · L
 
 To encourage transparency and exploration, the Bayesian Drake model supports multiple predefined prior configurations representing different reasonable scientific attitudes toward uncertainty.
 
-| Prior Set    | Description                                                                              |
-| ------------ | ---------------------------------------------------------------------------------------- |
+| Prior Set    | Description       |
+
 | Conservative | Broad distributions biased toward lower probabilities and shorter civilization lifetimes |
 | Agnostic     | Maximally uninformative priors reflecting minimal assumptions                            |
 | Optimistic   | Distributions biased toward higher probabilities and longer lifetimes                    |
