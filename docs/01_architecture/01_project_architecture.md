@@ -2,177 +2,234 @@
 
 ## Overview
 
+The project is structured as a **computational laboratory for exploring the Fermi Paradox**.
+
+Core scientific workflow:
+
+Drake Equation → Civilization Simulation → Observational Constraints → Bayesian Hypothesis Inference
+
+The web application exposes these models through an interactive interface while keeping
+scientific logic isolated from the web framework.
+
 ```mermaid
 graph TD;
-    A[Project] --> B[src]
-    B --> C[main.py]
-    B --> D[models.py]
-    B --> E[utils.py]
-    B --> F[config.py]
-    B --> G[data.py]
-    B --> H[train.py]
-    B --> I[test.py]
+    A[User Interface] --> B[API Layer]
+    B --> C[Scientific Core]
+    C --> D[Drake Model]
+    C --> E[Galaxy Simulation]
+    C --> F[Fermi Hypothesis Inference]
+    C --> G[Signal Detection Models]
 ```
 
-## Structure
+---
 
-```mermaid
+## Repository Layout
+
+```text
 fermi_paradox/
+│
 ├── src/
 │   ├── fermi_paradox/
+│   │   │
 │   │   ├── __init__.py
+│   │   │
 │   │   ├── main.py
-│   │   │       # Flask (or FastAPI) app entrypoint.
-│   │   │       #   Responsible ONLY for creating/starting the app.
-│   │   │       #   No business logic should live here.
-│   │   │   
+│   │   │       # Application entrypoint.
+│   │   │       # Responsible ONLY for initializing the Flask/FastAPI app.
+│   │   │       # No scientific logic or business logic should live here.
+│   │   │
 │   │   ├── config/
 │   │   │   ├── __init__.py
 │   │   │   ├── settings.py
-│   │   │   │   # Global configuration for the web app.
-│   │   │   │   # Environment variables, debug flags, logging setup.
+│   │   │   │       # Global application configuration.
+│   │   │   │       # Environment variables, logging, debug flags.
+│   │   │   │
 │   │   │   └── drake_params.py
-│   │   │       # Centralized Drake Equation parameter defaults + presets.
-│   │   │       # (Optimistic, pessimistic, conservative, rare-earth model.)
+│   │   │           # Centralized Drake Equation parameter presets.
+│   │   │           # Example presets:
+│   │   │           #   - Optimistic civilization scenario
+│   │   │           #   - Conservative estimate
+│   │   │           #   - Rare Earth hypothesis
 │   │   │
 │   │   ├── core/
-│   │   │   ├── __init__.py
+│   │   │   │       
+│   │   │   │       # -----------------------------------------
+│   │   │   │       # SCIENTIFIC MODEL LAYER
+│   │   │   │       # -----------------------------------------
+│   │   │   │       # This layer contains the core scientific logic.
+│   │   │   │       # No web framework code is allowed here.
+│   │   │   │       # These modules should be importable independently.
+│   │   │   │
 │   │   │   ├── drake_equation.py
-│   │   │   │   # Pure scientific logic for calculating the Drake number.
-│   │   │   │   # No web framework. No ML. Just math + validation.
-│   │   │   │   # This is your “physics engine” for Section 1 of the project.
+│   │   │   │       # Implements deterministic and Bayesian Drake models.
+│   │   │   │       # Calculates estimated number of communicating civilizations.
+│   │   │   │       # This forms the starting point for the rest of the pipeline.
+│   │   │   │
 │   │   │   ├── galaxy_simulation.py
-│   │   │   │   # Monte Carlo simulation engine for civilizations in the galaxy.
-│   │   │   │   # Supports random galaxy generation, probability distributions,
-│   │   │   │   # visualization-friendly output, and future ML surrogate models.
+│   │   │   │       # Monte Carlo simulation of civilizations in the galaxy.
+│   │   │   │       # Uses Drake results as probabilistic inputs.
+│   │   │   │       # Can generate spatial distributions, civilization timelines,
+│   │   │   │       # and expected observational patterns.
+│   │   │   │
+│   │   │   ├── fermi_inference.py
+│   │   │   │       # Bayesian inference engine for the Fermi Paradox.
+│   │   │   │       #
+│   │   │   │       # Uses:
+│   │   │   │       #   - Civilization distributions
+│   │   │   │       #   - Observational constraints
+│   │   │   │       #   - Hypothesis priors
+│   │   │   │       #
+│   │   │   │       # Computes posterior probabilities for explanations such as:
+│   │   │   │       #   H1 Life is rare
+│   │   │   │       #   H2 Intelligence is rare
+│   │   │   │       #   H3 Civilizations self-destruct
+│   │   │   │       #   H4 Interstellar expansion is difficult
+│   │   │   │       #   H5 Civilizations avoid detection
+│   │   │   │       #   H6 Humanity is early
+│   │   │   │
 │   │   │   ├── probability_models.py
-│   │   │   │   # Foundation for SETI-style signal analysis.
-│   │   │   │   # Early statistical functions, FFT prep, noise modeling, etc.
-│   │   │   │   # Future home for “Probability Detection” page backend.
+│   │   │   │       # Signal detection probability tools.
+│   │   │   │       # Statistical models used to evaluate whether a signal
+│   │   │   │       # is likely natural or artificial.
+│   │   │   │       # This supports the future "Probability Detection" page.
+│   │   │   │
 │   │   │   └── visualization.py
-│   │   │       # Central location for plotting logic:
-│   │   │       # Drake results, galaxy scatter plots, histograms, heatmaps, etc.
-│   │   │       # Keeps Matplotlib/Plotly code isolated from logic.
+│   │   │           # Plotting utilities for scientific outputs.
+│   │   │           # Examples:
+│   │   │           #   - Drake result histograms
+│   │   │           #   - Galaxy civilization maps
+│   │   │           #   - Hypothesis posterior charts
 │   │   │
 │   │   ├── ml/
-│   │   │   │       # Future ML modules — empty now but structured for expansion.
-│   │   │   │       # Adds depth to the project WITHOUT requiring ML today.
-│   │   │   ├── __init__.py
+│   │   │   │
+│   │   │   │       # -----------------------------------------
+│   │   │   │       # OPTIONAL MACHINE LEARNING MODULES
+│   │   │   │       # -----------------------------------------
+│   │   │   │
 │   │   │   ├── surrogate/
-│   │   │   │       # Placeholder for ML surrogate models
-│   │   │   │       # (e.g., predicting simulation outcomes without running MC).
+│   │   │   │       # ML models that approximate simulation results.
+│   │   │   │       # Example: predicting galaxy simulation outcomes
+│   │   │   │       # without running expensive Monte Carlo simulations.
+│   │   │   │
 │   │   │   └── signal_detection/
-│   │   │       # Placeholder for CNN / FFT-based signal classifier.
-│   │   │       # Eventually supports SETI-like “Is this signal artificial?” page.
+│   │   │           # Future CNN or signal processing models.
+│   │   │           # Intended for classifying potential SETI signals.
 │   │   │
 │   │   ├── api/
-│   │   │   ├── __init__.py
-│   │   │   ├── forms/          # WTForms or similar for handling user input from the UI. 
+│   │   │   │
+│   │   │   │       # -----------------------------------------
+│   │   │   │       # WEB APPLICATION LAYER
+│   │   │   │       # -----------------------------------------
+│   │   │   │
+│   │   │   ├── forms/
+│   │   │   │   │   # User input forms.
+│   │   │   │   │
 │   │   │   │   ├── drake_form.py
 │   │   │   │   ├── galaxy_simulation_form.py
 │   │   │   │   └── signal_detection_form.py
 │   │   │   │
-│   │   │   ├── controllers/     # Business logic connecting core/ and ml/ to the web routes.
+│   │   │   ├── controllers/
+│   │   │   │   │   # Business logic connecting web requests
+│   │   │   │   │   # to the scientific model layer.
+│   │   │   │   │   #
+│   │   │   │   │   # Controllers call functions inside core/.
+│   │   │   │   │
 │   │   │   │   ├── drake_controller.py
 │   │   │   │   ├── galaxy_simulation_controller.py
+│   │   │   │   ├── fermi_hypothesis_controller.py
 │   │   │   │   └── signal_detection_controller.py
 │   │   │   │
-│   │   │   ├── routes/             # Calls into core/ and ml/ without containing logic.          
-│   │   │   │   └── routes.py       # Flask route definitions.   
-│   │   │   │   
-│   │   │   └── schemas.py          # (Optional) Pydantic or Marshmallow schemas for data validation.
-│   │   │       
-│   │   ├── templates/                     # Everything for the web UI.
-│   │   │   ├── base/  
-│   │   │   │   ├── base.html              # Shared layout (navbar, footer).
-│   │   │   │   └── home.html              # Home page with project overview.
+│   │   │   ├── routes/
+│   │   │   │   │   # HTTP route definitions.
+│   │   │   │   │   # Routes should be thin and delegate to controllers.
+│   │   │   │   │
+│   │   │   │   └── routes.py
+│   │   │   │
+│   │   │   └── schemas.py
+│   │   │           # Optional request/response validation schemas.
+│   │   │
+│   │   ├── templates/
+│   │   │   │
+│   │   │   │       # -----------------------------------------
+│   │   │   │       # USER INTERFACE
+│   │   │   │       # -----------------------------------------
+│   │   │   │
+│   │   │   ├── base/
+│   │   │   │   ├── base.html
+│   │   │   │   └── home.html
 │   │   │   │
 │   │   │   ├── drake/
-│   │   │   │   └── drake.html             # Drake equation calculator UI.
+│   │   │   │   └── drake.html
+│   │   │   │       # Deterministic Drake calculator.
+│   │   │   │
+│   │   │   ├── fermi/
+│   │   │   │   └── hypothesis_model.html
+│   │   │   │       # Displays Bayesian hypothesis results.
 │   │   │   │
 │   │   │   ├── galaxy_simulator/
-│   │   │   │   └── galaxy_simulator.html  # UI for Monte Carlo simulation results.
+│   │   │   │   └── galaxy_simulator.html
+│   │   │   │       # Visualization of civilization simulations.
 │   │   │   │
 │   │   │   └── signal_detection/
-│   │   │       └── signal_detection.html  # UI for probability & signal exploration.
+│   │   │       └── signal_detection.html
+│   │   │           # Signal probability exploration tools.
 │   │   │
 │   │   ├── static/
-│   │   │   ├── css/                    # Stylesheets
-│   │   │   ├── js/                     # JS functionality (plots, interactions)
-│   │   │   └── images/                 # Galaxy diagrams, icons, assets
-│   │   │   
+│   │   │       # CSS, JavaScript, images.
+│   │   │
 │   │   └── utils/
-│   │       ├── __init__.py
-│   │       ├── math_helpers.py         # Small reusable math utilities (probability, randomization). 
-│   │       ├── formatters.py           # String formatting, report generation helpers.
-│   │       └── plot_utils.py           # Shared plotting functions (color maps, themes, common chart types).
-│   │           
+│   │       ├── math_helpers.py
+│   │       ├── formatters.py
+│   │       └── plot_utils.py
 │   │
 │   └── tests/
-│       ├── __init__.py
-│       ├── test_drake_equation.py          # Unit tests for core Drake logic.
-│       ├── test_galaxy_simulation.py       # Tests for MC simulator.
-│       ├── test_probability_models.py      # Tests for signal probability tools.
-│       └── test_api_routes.py              # Routes + integration tests.
+│       # Unit and integration tests.
 │
 ├── research/
+│   │
+│   │   # -----------------------------------------
+│   │   # EXPERIMENTAL RESEARCH WORKSPACE
+│   │   # -----------------------------------------
+│   │
 │   ├── notebooks/
-│   │   ├── 01_drake_exploration.ipynb      # Uncertainty exploration, sensitivity.
-│   │   ├── 02_galaxy_MC_study.ipynb        # Experimenting with simulation logic.
-│   │   ├── 03_signal_spectrum_proto.ipynb  # Early FFT visualizations + concepts.
-│   │   └── 04_ml_surrogate_prototype.ipynb # Placeholder for future ML.
 │   ├── references/
-│   │   ├── papers/                         # Academic papers, articles.
-│   │   └── books/                          # Relevant books, eBooks.
 │   └── data/
-│       ├── synthetic_signals/              # Sample or generated signal data.
-│       └── simulation_runs/                # Saved MC results for reference.
 │
 ├── docs/
-│   ├── 00_project_overview/                # Explain project purpose + structure.
-│   │   ├── 01_introduction.md              # What is the Fermi Paradox?
-│   │   ├── 02_drake_number_documentation.md # Explain the Drake Equation.
-│   │   ├── 03_project_goals.md             # Scientific + educational aims
-│   │   ├── 04_roadmap.md                   # Fun + scientific future plans.
-│   │   └── 05_structure_description.md     # Explain code/project structure.
-│   ├── 01_architecture/                    # High-level architecture diagrams.
-│   │   ├── 01_project_architecture.md      # Overall project design.
-│   │   ├── 02_architecture_overview.md     # System components and interactions.
-│   │   └── 03_component_descriptions.md    # Details on each major module.
+│   │
+│   │   # -----------------------------------------
+│   │   # PROJECT DOCUMENTATION
+│   │   # -----------------------------------------
+│   │
+│   ├── 00_project_overview/
+│   ├── 01_architecture/
 │   ├── 02_technical_documentation/
-│   │   ├── 01_core_modules.md              # Core logic explanations.
-│   │   ├── 02_api_endpoints.md             # API route documentation.
-│   │   ├── 03_ml_integration.md            # Future ML module plans.
-│   │   └── 04_frontend_structure.md        # Web UI component breakdown.
 │   ├── 03_user_guides/
-│   │   ├── 01_drake_equation_guide.md      # How to use the Drake calculator.
-│   │   ├── 02_galaxy_simulator_guide.md    # Using the MC simulation tool.
-│   │   └── 03_signal_detection_guide.md    # Exploring signal probability features.
 │   ├── 04_api_documentation/
-│   │   ├── 01_endpoint_reference.md           # Full API reference.
-│   │   └── 02_example_requests.md             # Sample API calls and responses.
-│   ├── 05_scientific_theory/               # Scientific background and theory.
-│   │   ├── 01_drake_equation_theory.md        # Scientific explanation.
-│   │   ├── 02_bayesian_drake_model.md        # Scientific explanation of Bayesian approach to Drake Equation.
-│   │   ├── 03_galaxy_simulation_theory.md     # Simulation reasoning.
-│   │   └── 04_signal_processing_overview.md   # Foundations for detection logic.
+│   ├── 05_scientific_theory/
 │   ├── 06_development_notes/
-│   │   ├── 01_architecture_notes.md           # ADR (Architecture Decision Records).
-│   │   ├── 02_development_log.md              # Journal of progress.
-│   │   └── 03_refactor_log.md                 # Notes as structure evolves.
 │   └── 07_assets/
-│       └── 01_diagrams/                       # Architecture graphics, galaxy visuals.
 │
-├── .env                                    # API keys, config (ignored in git)
-├── .env.example                            # Example env file for reference
-├── .gitignore
-├── .gitattributes
+├── run.py
+├── README.md
 ├── LICENSE
-├── requirements.txt or pyproject.toml
-├── README.md                               # Project landing page
-├── Procfile                                # For deployment (Heroku, etc.)
-├── pytest.ini                              # Pytest configuration
-└── run.py                                  # Convenience launcher
+├── pyproject.toml
+├── Procfile
+└── pytest.ini
 ```
 
-This structure provides a clear separation of concerns, making it easier to navigate and maintain the codebase. Each directory and file has a specific purpose, contributing to the overall functionality of the Fermi Paradox project.
+---
+
+## Final Architectural Intent
+
+The project intentionally separates:
+
+| Layer | Responsibility |
+| ------ | ------ |
+| **core/** | Scientific models and simulations |
+| **api/** | Web interface and request handling |
+| **templates/** | User interface |
+| **research/** | Experimental work and notebooks |
+| **docs/** | Scientific and architectural documentation |
+
+This separation ensures the scientific models remain reusable outside the web application.
