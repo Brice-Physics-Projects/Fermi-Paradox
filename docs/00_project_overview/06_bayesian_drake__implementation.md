@@ -1,30 +1,81 @@
-# ✅ Bayesian Drake Equation — Implementation Roadmap
+# ✅ Bayesian Fermi Paradox Model — Implementation Roadmap
 
-This checklist outlines the end-to-end work required to fully implement the **Bayesian Drake Equation** in the Fermi Paradox Project, from scientific modeling through backend integration and UI updates. The intent is to move deliberately from exploratory research to a stable, user-facing feature without disrupting the existing deterministic Drake calculator.
+This checklist outlines the end-to-end work required to implement a **Bayesian Fermi Paradox framework**, combining a probabilistic Drake Equation with a hypothesis-driven inference engine explaining the apparent absence of extraterrestrial civilizations.
+
+The system will evolve from a **Bayesian Drake estimator** into a broader **Fermi Paradox reasoning model**.
+
+In simpler terms, the project tries to answer two big questions: **how many civilizations might exist in the galaxy, and why we don’t see evidence of them yet**. The Bayesian Drake model estimates how many intelligent civilizations could arise based on uncertain factors like the probability of life forming or how long civilizations survive. The hypothesis model then evaluates different explanations for the silence — for example whether intelligent life is extremely rare, civilizations tend to destroy themselves, or humanity may simply be early in the universe’s timeline.
 
 ---
 
 ## Phase 1 — Scientific Model Finalization
 
-**Goal:** Lock down a defensible Bayesian formulation before touching production code.
+**Goal:** Establish the scientific foundations before touching application code.
 
-* [ ] Define final Drake parameters to include in Bayesian model
-* [ ] Select distribution types for each parameter (Beta, Normal, Log-normal)
+### Drake Equation Model
+
+* [ ] Define Drake parameters included in Bayesian model
+* [ ] Select distributions for each parameter:
+
+  * [ ] Beta distributions (probabilities)
+  * [ ] Log-normal distributions (lifetimes)
+  * [ ] Normal distributions (rates)
+
 * [ ] Define default hyperparameters for:
 
   * [ ] Conservative priors
   * [ ] Agnostic priors
   * [ ] Optimistic priors
-* [ ] Document rationale for each prior choice (scientific + philosophical)
-* [ ] Validate distributions via exploratory plots (histograms, KDEs)
-* [ ] Decide on default number of Monte Carlo samples
-* [ ] Confirm reproducibility strategy (random seed handling)
+
+* [ ] Document rationale for each prior
+* [ ] Validate distributions using exploratory plots
+* [ ] Decide Monte Carlo sample size
+* [ ] Define reproducibility strategy (random seed)
 
 ---
 
-## Phase 2 — Core Bayesian Engine (Backend, No UI)
+### Fermi Paradox Hypothesis Model
 
-**Goal:** Implement a clean, testable Bayesian Drake engine independent of Flask.
+**Goal:** Formalize competing explanations for the silence.
+
+Define hypotheses:
+
+* [ ] H1 — Life itself is extremely rare
+* [ ] H2 — Intelligent life is rare
+* [ ] H3 — Technological civilizations self-destruct
+* [ ] H4 — Interstellar expansion is extremely difficult
+* [ ] H5 — Civilizations intentionally avoid contact
+* [ ] H6 — Humanity is early relative to most civilizations
+
+For each hypothesis:
+
+* [ ] Define prior probability
+* [ ] Define expected observable signatures
+* [ ] Define likelihood functions for evidence
+
+---
+
+### Observational Evidence Model
+
+Define observations used for inference:
+
+* [ ] E1 — No confirmed extraterrestrial signals
+* [ ] E2 — No Dyson spheres or megastructures detected
+* [ ] E3 — No extraterrestrial probes in the solar system
+* [ ] E4 — No confirmed extraterrestrial artifacts
+* [ ] E5 — No observable galactic colonization
+
+* [ ] Define likelihood functions \(P(E | H)\)
+
+---
+
+## Phase 2 — Core Bayesian Engines (Backend Only)
+
+**Goal:** Implement modular, testable scientific components independent of Flask.
+
+---
+
+### 2.1 Bayesian Drake Engine
 
 * [ ] Create `core/bayesian_drake.py`
 * [ ] Implement parameter sampling functions
@@ -32,119 +83,180 @@ This checklist outlines the end-to-end work required to fully implement the **Ba
 * [ ] Return structured outputs:
 
   * [ ] Raw samples
-  * [ ] Summary statistics (mean, median, percentiles)
-* [ ] Add lightweight validation (parameter bounds, sample size checks)
-* [ ] Add docstrings and inline comments
-* [ ] Write unit tests for:
+  * [ ] Summary statistics
+  * [ ] Civilization count distribution
 
-  * [ ] Distribution sampling
-  * [ ] Deterministic sanity checks
+* [ ] Add validation checks
+* [ ] Add docstrings and documentation
+* [ ] Write unit tests
+
+---
+
+### 2.2 Hypothesis Inference Engine
+
+* [ ] Create `core/fermi_hypothesis.py`
+* [ ] Define hypothesis data structure
+* [ ] Implement likelihood evaluation
+* [ ] Implement Bayesian update function
+
+Posterior calculation:
+
+```Latex
+P(H | E) ∝ P(E | H) × P(H)
+```
+
+* [ ] Return posterior probabilities for each hypothesis
+
+---
+
+### 2.3 Evidence Integration Layer
+
+* [ ] Create `core/evidence_model.py`
+* [ ] Implement evidence likelihood functions
+* [ ] Connect Drake outputs to hypothesis likelihoods
+
+Example:
+
+```text
+High civilization counts → supports "Great Filter ahead"
+Low civilization counts → supports "Life is rare"
+```
 
 ---
 
 ## Phase 3 — API & Controller Integration
 
-**Goal:** Expose Bayesian Drake results cleanly to the web layer.
+**Goal:** Expose Bayesian engines cleanly to the web application.
 
 * [ ] Add Bayesian Drake controller
-* [ ] Define API interface for:
+* [ ] Add Hypothesis Model controller
+* [ ] Define API interfaces for:
 
-  * [ ] Prior set selection
+  * [ ] Prior selection
+  * [ ] Evidence selection
   * [ ] Sample size configuration
-* [ ] Ensure separation from deterministic Drake logic
-* [ ] Add input validation and error handling
-* [ ] Prepare data structures for visualization (JSON-serializable)
+
+* [ ] Ensure deterministic Drake remains isolated
+* [ ] Validate inputs and handle errors
+* [ ] Return JSON-ready data structures
 
 ---
 
-## Phase 4 — Jinja Template & UI Design
+## Phase 4 — UI Architecture
 
-**Goal:** Introduce Bayesian Drake as a first-class feature without confusing users.
+**Goal:** Introduce Bayesian reasoning without overwhelming users.
 
-### UI Structure
+---
 
-* [ ] Add new navigation entry: **Bayesian Drake Equation**
-* [ ] Decide page placement (new page vs. tabbed Drake view)
-* [ ] Add short explanatory banner (non-technical)
+### Navigation
 
-### Jinja Template Updates
+* [ ] Add new section: **Fermi Paradox Explorer**
+* [ ] Include subpages:
 
-* [ ] Create `templates/drake/bayesian_drake.html`
-* [ ] Extend base layout (no duplication)
-* [ ] Add prior set selector (radio buttons or dropdown)
-* [ ] Add sample size selector (optional, advanced)
-* [ ] Add explanatory tooltips for each parameter
+  * [ ] Deterministic Drake
+  * [ ] Bayesian Drake
+  * [ ] Fermi Hypothesis Model
 
-### Result Presentation
+---
 
-* [ ] Display summary statistics:
+### Templates
 
-  * [ ] Median estimate
-  * [ ] Credible interval (e.g., 5th–95th percentile)
-* [ ] Add histogram or density plot
-* [ ] Clearly label outputs as *distributions*, not predictions
+* [ ] Create `templates/fermi/bayesian_drake.html`
+* [ ] Create `templates/fermi/hypothesis_model.html`
+* [ ] Extend base layout
+* [ ] Add explanation banners
+* [ ] Add parameter tooltips
+
+---
+
+### Controls
+
+Users should be able to:
+
+* [ ] Select prior assumptions
+* [ ] Select evidence to include
+* [ ] Adjust Monte Carlo sample size
 
 ---
 
 ## Phase 5 — Visualization Layer
 
-**Goal:** Make uncertainty intuitive and visually clear.
+**Goal:** Make uncertainty and inference visually intuitive.
 
-* [ ] Implement histogram plotting utility
-* [ ] Add optional log-scale toggle
-* [ ] Highlight median vs mean
-* [ ] Annotate long-tail behavior
-* [ ] Ensure plots render cleanly in Flask templates
+### Drake Results
+
+* [ ] Histogram of civilization counts
+* [ ] Log-scale visualization
+* [ ] Median and credible intervals
 
 ---
 
-## Phase 6 — Documentation & UX Polish
+### Hypothesis Results
 
-**Goal:** Make Bayesian Drake understandable, defensible, and discoverable.
+* [ ] Posterior probability bar chart
+* [ ] Hypothesis comparison table
+* [ ] Sensitivity analysis
 
-* [ ] Link Bayesian Drake page to scientific documentation
-* [ ] Add “What does this mean?” explainer section
-* [ ] Add disclaimers about uncertainty and assumptions
-* [ ] Cross-link deterministic Drake page
-* [ ] Update architecture docs to reflect Bayesian pipeline
+---
+
+### Combined Visualization
+
+* [ ] Drake output distribution
+* [ ] Hypothesis posterior update
+* [ ] Evidence influence diagram
+
+---
+
+## Phase 6 — Documentation & Scientific Transparency
+
+**Goal:** Ensure the model is understandable and defensible.
+
+* [ ] Document all priors
+* [ ] Explain likelihood assumptions
+* [ ] Provide Bayesian inference overview
+* [ ] Link scientific references
+* [ ] Add interpretation guidance
+
+Add section:
+
+>**"What does this model actually tell us?"**
 
 ---
 
 ## Phase 7 — Testing, Validation & Release
 
-**Goal:** Ship with confidence.
+**Goal:** Ship a stable and scientifically coherent feature.
 
-* [ ] Regression test deterministic Drake (no behavior changes)
-* [ ] Load test Bayesian sampling performance
-* [ ] Verify Heroku resource usage
-* [ ] Confirm consistent results across deploys
-* [ ] Final UI review (desktop & mobile)
-* [ ] Mark Bayesian Drake feature as **Live** on site
+* [ ] Regression test deterministic Drake
+* [ ] Validate Bayesian outputs
+* [ ] Stress test Monte Carlo performance
+* [ ] Verify reproducibility
+* [ ] Confirm deployment stability
 
 ---
 
 ## Optional Future Enhancements
 
-* [ ] User-customizable priors
-* [ ] Parameter sensitivity charts
-* [ ] Export results (CSV / JSON)
-* [ ] Bayesian Drake → Galaxy simulation pipeline
-* [ ] PyMC integration for full Bayesian inference
+* [ ] User-defined hypotheses
+* [ ] Real-time SETI data integration
+* [ ] Exoplanet database integration
+* [ ] Galaxy colonization simulations
+* [ ] Full probabilistic programming (PyMC)
 
 ---
 
 ## Completion Criteria
 
-Bayesian Drake is considered fully implemented when:
+The Fermi Paradox Bayesian model is considered complete when:
 
-* The scientific model is documented and reproducible
-* Results are presented as distributions, not single values
-* Users can compare outcomes across prior assumptions
-* The feature integrates cleanly with the existing Flask app
-* Deterministic Drake remains unchanged and available
+* Civilization estimates are generated probabilistically
+* Competing explanations are modeled explicitly
+* Evidence updates hypothesis probabilities
+* Results are visualized clearly
+* Deterministic Drake remains intact
 
 ---
 
-**Design Principle:**
+## Design Principle
 
-> *Expose uncertainty. Avoid false precision. Let assumptions speak for themselves.*
+> **Expose uncertainty. Avoid false precision. Let assumptions speak for themselves.**
