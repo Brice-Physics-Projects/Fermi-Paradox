@@ -26,7 +26,7 @@ def get_drake_number():
             if value:
                 params[key] = float(value)
     DRAKE_NUMBER = calculate_drake_number(**params)
-    return render_template("drake.html", DRAKE_NUMBER=DRAKE_NUMBER, params=params)
+    return render_template("drake/drake.html", DRAKE_NUMBER=DRAKE_NUMBER, params=params)
 
 @api_bp.route("/api/edit-drake", methods=["GET", "POST"])
 def edit_drake_params():
@@ -61,5 +61,5 @@ def edit_drake_params():
 
         # calcuate drake's number
         DRAKE_NUMBER = calculate_drake_number(**params)
-        return render_template("drake.html", form=form, DRAKE_NUMBER=DRAKE_NUMBER, params=params)
-    return render_template("edit-drake.html", form=form, name=name)
+        return render_template("drake/drake.html", form=form, DRAKE_NUMBER=DRAKE_NUMBER, params=params)
+    return render_template("drake/edit-drake.html", form=form, name=name)

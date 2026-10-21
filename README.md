@@ -11,7 +11,7 @@
 ## 📛 Project Badges
 
 | Category | Badge |
-|---------|-------|
+| --------- | ------- |
 | **Project** | ![Project](https://img.shields.io/badge/Fermi%20Paradox%20Project-6f42c1?style=flat-square) |
 | **Language** | ![Python](https://img.shields.io/badge/Python-3.12-blue?style=flat-square&logo=python) |
 | **Framework** | ![Flask](https://img.shields.io/badge/Framework-Flask-green?style=flat-square&logo=flask) |
