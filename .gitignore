@@ -183,7 +183,6 @@ out/
 .conda/
 
 # uv
-uv.lock
 .uv-cache/
 
 # OS generated files

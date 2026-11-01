@@ -2,7 +2,9 @@
 
 from flask import Flask
 from flask_talisman import Talisman
+
 from fermi_paradox.config.settings import get_config, logger
+
 
 def create_app(config_class=None):
     """Application factory for Fermi Paradox Flask app."""

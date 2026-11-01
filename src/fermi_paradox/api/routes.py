@@ -5,9 +5,10 @@ src/fermi_paradox/api/routes.py
 """
 
 from flask import Blueprint, render_template, request
+
+from fermi_paradox.api.forms import DrakeForm
 from fermi_paradox.config.drake_number_params import DEFAULT_DRAKE_PARAMS
 from fermi_paradox.core.drake_equation import calculate_drake_number
-from fermi_paradox.api.forms import DrakeForm
 
 api_bp = Blueprint("api", __name__)
 
@@ -21,7 +22,7 @@ def get_drake_number():
     """Return Drake number."""
     params = DEFAULT_DRAKE_PARAMS
     if request.method == "POST":
-        for key in params.keys():
+        for key in params:
             value = request.form.get(key)
             if value:
                 params[key] = float(value)

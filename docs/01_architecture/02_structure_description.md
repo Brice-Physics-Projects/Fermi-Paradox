@@ -10,17 +10,17 @@ This document explains the architectural layers of the Fermi Paradox project. It
 
 The project is divided into three major domains:
 
-- **Application Code (`src/`)** — Everything required for running the interactive web application.
+- **Application Code (`../../src`)** — Everything required for running the interactive web application.
 - **Research (`research/`)** — Scientific experiments, notebooks, datasets, and academic references.
-- **Documentation (`docs/`)** — Formal, organized documentation covering architecture, scientific theory, and development logs.
+- **Documentation (`..`)** — Formal, organized documentation covering architecture, scientific theory, and development logs.
 
 This layout mirrors the structure of real scientific software used in ML research, astrophysics, and simulation-heavy environments.
 
 ---
 
-## ⭐ 2. `src/` — The Application Layer
+## ⭐ 2. `../../src` — The Application Layer
 
-The `src/fermi_paradox/` directory contains all logic needed to run the operational web application. This includes the app entrypoint, scientific logic, simulations, early probability modeling, and placeholders for future ML expansions.
+The `../../src/fermi_paradox` directory contains all logic needed to run the operational web application. This includes the app entrypoint, scientific logic, simulations, early probability modeling, and placeholders for future ML expansions.
 
 ## 2.1 `main.py` — Application Entrypoint
 
@@ -157,7 +157,7 @@ Shared plotting utilities, ensuring consistent styling across visualizations.
 
 ---
 
-## ⭐ 10. `tests/` — Automated Unit & Integration Tests
+## ⭐ 10. `../../tests` — Automated Unit & Integration Tests
 
 Ensures correctness and reliability of:
 
@@ -195,7 +195,7 @@ This division separates production code from experimental ideas.
 
 ---
 
-## ⭐ 12. `docs/` — Formal Documentation
+## ⭐ 12. `..` — Formal Documentation
 
 Organized into clearly defined sections:
 
@@ -233,12 +233,12 @@ This documentation mirrors industry best practices for scientific and ML-ready s
 
 Standard supporting files:
 
-- `.env` — Sensitive configuration.
-- `.gitignore` — Git hygiene.
+- `../../.env` — Sensitive configuration.
+- `../../.gitignore` — Git hygiene.
 - `LICENSE` — Legal permissions.
-- `requirements.txt` / `pyproject.toml` — Python dependencies.
-- `README.md` — Overview for the GitHub audience.
-- `run.py` — Convenient startup script.
+- `../../requirements.txt` / `pyproject.toml` — Python dependencies.
+- `../../README.md` — Overview for the GitHub audience.
+- `../../run.py` — Convenient startup script.
 
 This metadata ensures the project is professional, reproducible, and clean.
 
