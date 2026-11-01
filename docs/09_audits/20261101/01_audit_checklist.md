@@ -47,7 +47,7 @@ Items with no bracketed ID were found while checking the audit against the curre
 - [ ] **P1.1 Fix the weighted-average `L`** [D-1, C-3]
   - [x] Confirm Drake's 2017 `L` against the cited source (Vaughan, Table 10-1, p. 191). The docs say `1×10⁹`; the code says `1.0E6`.
   - [x] Remove the `/ 2` in `config/drake_number_params.py:9`. The weights 0.2 and 0.8 already sum to 1.
-  - [ ] Recompute the default N (86,400 now; about 12.96 million if `L_2017 = 1×10⁹`) and update every place it appears.
+  - [x] Recompute the default N (86,400 now; about 12.96 million if `L_2017 = 1×10⁹`) and update every place it appears.
 - [ ] **P1.2 Settle the canonical default values for f_p and f_i** [D-2]
   - [ ] f_p: 0.8 (table, code, UI) or 1.0 (doc justification text)?
   - [ ] f_i: 1 (table, code, UI) or 0.1 (doc justification text)?
