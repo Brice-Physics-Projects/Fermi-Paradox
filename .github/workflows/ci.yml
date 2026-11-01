@@ -2,9 +2,9 @@ name: 🧪 CI - Fermi Paradox
 
 on:
   push:
-    branches: [ "main", "src/refactor" ]
+    branches: [ "main", "dev" ]
   pull_request:
-    branches: [ "main", "src/refactor" ]
+    branches: [ "main", "dev" ]
 
 jobs:
   test:
