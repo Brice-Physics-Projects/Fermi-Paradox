@@ -6,6 +6,7 @@ src/fermi_paradox/main.py
 
 from fermi_paradox import create_app
 
+
 def start_app():
     """Start the Flask app (used for debugging or CLI calls)."""
     app = create_app()

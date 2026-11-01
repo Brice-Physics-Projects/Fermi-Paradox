@@ -14,25 +14,17 @@ jobs:
       - name: 🛎️ Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - name: 🐍 Set up uv
+        uses: astral-sh/setup-uv@v6
 
       - name: 📦 Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          # Dev/test dependencies
-          pip install pytest pytest-cov ruff beautifulsoup4 lxml
+        run: uv sync --locked
 
       - name: 🔍 Run linter (ruff)
-        run: |
-          ruff check src/fermi_paradox
+        run: uv run ruff check src/fermi_paradox
 
       - name: 🧪 Run tests with coverage
-        run: |
-          pytest --cov=src/fermi_paradox --cov-report=term-missing -v --disable-warnings
+        run: uv run pytest --cov=src/fermi_paradox --cov-report=term-missing -v --disable-warnings
 
       - name: 📊 Upload coverage artifact
         if: success()

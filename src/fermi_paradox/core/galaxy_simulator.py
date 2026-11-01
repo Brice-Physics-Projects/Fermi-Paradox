@@ -1,9 +1,9 @@
-import tkinter as tk
-from random import randint, uniform, random
 import math
-import numpy as np
-import prob_detection # noqa: F401
+import tkinter as tk
+from random import randint, random, uniform
 
+import numpy as np
+import prob_detection  # noqa: F401
 
 # *************** MAIN INPUT ***************************
 
@@ -190,7 +190,7 @@ class Galaxy:
         Returns:
             None: The function draws stars directly on the tkinter canvas.
         """
-        for i in range(0, disc_radius_scaled * density):
+        for i in range(disc_radius_scaled * density):
             x, y = random_polar_coordinates(disc_radius_scaled)
             c.create_text(x, y, fill='white', font=('Helvetica', '7'), text='.')
 

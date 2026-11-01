@@ -1,12 +1,14 @@
-import numpy as np
-from random import randint
 from collections import Counter
+from random import randint
+
 import matplotlib
+import numpy as np
+
 matplotlib.use('TkAgg')  # or 'Qt5Agg' if TkAgg is not available
+import tkinter as tk  # noqa: F401
+
 import matplotlib.pyplot as plt
 import pandas as pd
-import tkinter as tk # noqa: F401
-
 
 # Constants
 NUM_EQUIV_VOLUMES = 1000 # number of locations in which to place civilizations
@@ -61,7 +63,7 @@ data = pd.DataFrame({
 # Polynomial Regression
 coefficients = np.polyfit(x, y, 4) # 4th order polynomial fit
 p = np.poly1d(coefficients)
-print ("\n{}".format(p))
+print (f"\n{p}")
 xp = np.linspace(0, 5)
 _ = plt.plot(x, y, '.', p(xp), '-')
 plt.ylim(-0.5, 1.5)
