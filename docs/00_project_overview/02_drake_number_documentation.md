@@ -17,9 +17,9 @@ This documentation provides an overview of the Drake number calculation process,
 ## Equation
 
 The Drake Equation is given by:
-\[
+$$
 N = R^* \times f(p) \times n(e) \times f(l) \times f(i) \times f(c) \times L
-\]
+$$
 
 ---
 
@@ -37,6 +37,8 @@ N = R^* \times f(p) \times n(e) \times f(l) \times f(i) \times f(c) \times L
 |  **f(c)**   | Fraction of intelligent civilizations that release detectable signals | 0.15 | 0.2 | 0.1 |
 |    **L**    | Average lifetime (in years) that civilizations release detectable signals | 50×10⁶ | 1×10⁹ | 1,000 |
 |    **N**    | Estimated number of detectable civilizations in the galaxy | 7.9×10⁶ | 15.6×10⁶ | — |
+
+*Note: The "Used in Model" column represents the values selected for the current model implementation, which may differ from historical estimates.  In particular, the value for \( L \) is set to 1,000 years to reflect a more conservative estimate of the longevity of detectable civilizations.  Default value for L, will be set to a weighted average of the 1961(20%) and 2017(80%) estimates, which is 810,000,000 years.  This will be used in the model unless the user specifies a different value.*
 
 ---
 

@@ -10,9 +10,9 @@ In the context of the Fermi Paradox Project, the Drake Equation provides the ste
 
 ## 1. The Equation
 
-\[
+$$
 N = R_\* \cdot f_p \cdot n_e \cdot f_l \cdot f_i \cdot f_c \cdot L
-\]
+$$
 
 Where:
 
