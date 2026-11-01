@@ -19,7 +19,7 @@ Establish the core architecture, documentation, and initial Drake Equation calcu
   - `api/` web routes
   - `templates/` user interface
   - `research/` exploratory notebooks
-  - `docs/` formal documentation
+  - `..` formal documentation
 
 ### ✅ Phase 1 Deliverables
 
@@ -151,7 +151,7 @@ Prepare the project for long-term use, demonstration, and public visibility.
 ### Phase 6 Deliverables
 
 - Comprehensive README with architecture diagrams
-- Finalized documentation in `docs/`
+- Finalized documentation in `..`
 - Demo video or GIF animations
 - Streamlined UI design
 - Optional deployment (Heroku, AWS, or Dockerized)

@@ -159,7 +159,7 @@ flask run
 - [ ] Deployment optimizations  
 
 Full roadmap available in:  
-`docs/00_project_overview/04_roadmap.md`
+`docs/04_checklists/01_roadmap.md`
 
 ---
 
