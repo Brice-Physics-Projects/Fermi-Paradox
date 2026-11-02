@@ -13,7 +13,7 @@ Items are grouped into priority tiers. Within each tier, items are ordered from 
 | **P4** | Conflicts between docs and code |
 | **P5** | Conflicts between docs |
 
-### How to read the item IDs
+## How to read the item IDs
 
 Each item has two kinds of ID:
 

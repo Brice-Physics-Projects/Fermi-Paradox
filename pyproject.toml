@@ -138,6 +138,10 @@ dependencies = [
 dev = [
     "pytest-cov",
 ]
+docs = [
+    "myst-parser>=5.1.0",
+    "sphinx>=9.1.1",
+]
 
 [tool.ruff.lint]
 # Pin the rule set explicitly so CI results don't change with ruff's defaults

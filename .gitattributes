@@ -1,2 +1,9 @@
+# Normalize text files and use LF in working copies.
+* text=auto eol=lf
+
+# Use Windows line endings for Windows command scripts.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
 # Auto detect text files and perform LF normalization
 * text=auto
